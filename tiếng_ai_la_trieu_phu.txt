@@ -1,0 +1,4 @@
+https://millionaire-school.netlify.com/sounds/lets_play.mp3
+https://millionaire-school.netlify.app/sounds/easy.mp3
+https://millionaire-school.netlify.app/sounds/wrong_answer.mp3
+https://millionaire-school.netlify.app/sounds/correct_answer.mp3

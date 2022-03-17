@@ -1,0 +1,294 @@
+<html>
+    <head>
+        <title>Văn Thọ 15</title>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+        <script type='text/javascript' src='https://rawcdn.githack.com/zarocknz/javascript-winwheel/229a47acc3d7fd941d72a3ba9e1649751fd10ed5/Winwheel.min.js'></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
+        <style>
+                body
+                {
+                    font-family: arial;
+                }
+
+                /* td.the_wheel
+                {
+                    /* background-image: url(./wheel_back.png); */
+                    background-image: url(https://res.cloudinary.com/vantho15/image/upload/v1646753197/wheel_back_ke33cg.png);
+                    background-position: center;
+                    background-repeat: none;
+                } */
+
+                h1, p
+                {
+                    margin: 0;
+                }
+
+                div.power_controls
+                {
+                    margin-right:70px;
+                }
+
+                div.html5_logo
+                {
+                    margin-left:70px;
+                }
+
+                table.power
+                {
+                    background-color: #cccccc;
+                    cursor: pointer;
+                    border:1px solid #b81c1c;
+                }
+
+                table.power th
+                {
+                    background-color: white;
+                    cursor: default;
+                }
+
+                .pw1
+                {
+                    background-color: #6fe8f0;
+                }
+
+                .pw2
+                {
+                    background-color: #86ef6f;
+                }
+
+                .pw3
+                {
+                    background-color: #ef6f6f;
+                }
+
+                .btn {
+                    border-radius: 50%;
+                    width: 80px;
+                    height: 80px;
+                    font-size: 20px;
+                    text-align: center;
+                    background-color: #18dcff;
+                }
+
+                .hide {
+                    display: none;
+                }
+
+                .clickable
+                {
+                    cursor: pointer;
+                }
+
+                .margin_bottom
+                {
+                    margin-bottom: 5px;
+                }
+                .to{
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                }
+                .so1{
+                    position: absolute;
+                    left: 41%;
+                    top: 43%;
+                }
+                .btn1{
+                    background-color: #ff3838;
+                    color: #dbd81f;
+                    font-weight: bold;
+                }
+                .btn2{
+                    background-color: #fff200;
+                    color: #ff3838;
+                    font-weight: bold;
+                }
+                .btn3{
+                    background-color: #00a8ff;
+                    color: #fcfcf7;
+                    font-weight: bold;
+                }
+                .chu{
+                    margin-top: 223px;
+                    color: #b81ca3;
+                    text-align: center;
+                }
+                #nut{
+                    visibility: hidden;
+                }
+        </style>
+    </head>
+    <body>
+        <div align='center'>
+            <table cellpadding='' cellspacing='0' border='0'>
+                <tr class='to'>
+                    <td class='so1'>
+                        <button id='spin_start' class='btn btn1' onClick='startSpin();'>Quay</button>
+                        <button id='spin_stop' class='btn btn2' onClick='stopSpin();'>Dừng</button>
+                        <button id='spin_reset' class='btn btn3' onClick='resetWheel();'>Tiếp</button>
+                        <h2 class='chu' id='kq' >Mời Quay</h2>
+
+                        <!-- <form action='/tho' method='post'>
+                            <input type='submit' id='nut' value='1234' name='INPUT'>
+                        </form> -->
+                    </td>
+                   
+                    <td width='438' height='582' class='the_wheel so2' align='center' valign='center'>
+                        <canvas id='canvas' width='434' height='434'>
+                        </canvas>
+                    </td>
+                </tr>
+               
+            </table>
+        </div>
+        <script>
+            //Thông số vòng quay
+            let state='Mời Bạn Quay';
+            let duration = 2; //Thời gian kết thúc vòng quay
+            let spins    = 3; //Quay nhanh hay chậm 3, 8, 15
+            let Truyen = 0;
+            let theWheel = new Winwheel({
+                'numSegments'  : 8,     // Chia 8 phần bằng nhau
+                'outerRadius'  : 212,   // Đặt bán kính vòng quay
+                'textFontSize' : 18,    // Đặt kích thước chữ
+                'rotationAngle': 0,     // Đặt góc vòng quay từ 0 đến 360 độ.
+                'segments'     :        // Các thành phần bao gồm màu sắc và văn bản.
+                [
+                   {'fillStyle' : '#0652DD', 'text' : 'CẠN LY'},
+                   {'fillStyle' : '#89f26e', 'text' : 'NỢ LY'},
+                   {'fillStyle' : '#7de6ef', 'text' : 'HAI LY'},
+                   {'fillStyle' : '#f8a5c2', 'text' : 'ĐỒNG KHỞI'},
+                   {'fillStyle' : '#eae56f', 'text' : '50-50'},
+                   {'fillStyle' : '#ff5252', 'text' : 'QUA LƯỢT'},
+                   {'fillStyle' : '#8e44ad', 'text' : 'MỜI LY'},
+                   {'fillStyle' : '#e67e22', 'text' : 'CHỈ ĐỊNH'} 
+                ],
+                'animation' : {
+                    'type'     : 'spinOngoing',
+                    'duration' : duration,
+                    'spins'    : spins,
+                    'callbackSound'    : playSound,     //Hàm gọi âm thanh khi quay
+                    'soundTrigger'     : 'pin',         //Chỉ định chân là để kích hoạt âm thanh
+                    'callbackFinished' : alertPrize,    //Hàm hiển thị kết quả trúng giải thưởng
+                },
+                'pins' :
+                {
+                    'number' : 16   //Số lượng chân. Chia đều xung quanh vòng quay.
+                }
+            });
+            
+            //Kiểm tra vòng quay
+            let wheelSpinning = false;
+            
+            //Tạo âm thanh và tải tập tin tick.mp3.
+            // let audio = new Audio('tick.mp3');
+            let audio = new Audio('https://res.cloudinary.com/vantho15/video/upload/v1646758244/tick_sbmiue.mp3');
+            let ketthuc = new Audio('https://res.cloudinary.com/vantho15/video/upload/v1646759971/ketthuc_dmcrer.wav');
+            function playSound() {
+                audio.pause();
+                audio.currentTime = 0;
+                audio.play();
+            }
+            
+            //Hiển thị các nút vòng quay
+            function statusButton(status) {
+                if ( status==1 ) { //trước khi quay
+                    document.getElementById('spin_start').classList.remove('hide');
+                    document.getElementById('spin_stop').classList.add('hide');
+                    document.getElementById('spin_reset').classList.add('hide');
+                } else if ( status==2 ) { //đang quay
+                    document.getElementById('spin_start').classList.add('hide');
+                    document.getElementById('spin_stop').classList.remove('hide');
+                    document.getElementById('spin_reset').classList.add('hide');
+                } else if ( status==3 ) { //kết quả
+                    document.getElementById('spin_start').classList.add('hide');
+                    document.getElementById('spin_stop').classList.add('hide');
+                    document.getElementById('spin_reset').classList.remove('hide');
+                } else {
+                    alert('Các giá trị của status: 1, 2, 3');
+                }
+            }
+            statusButton(1);
+            
+            //startSpin
+            function startSpin() {
+                // Ensure that spinning can't be clicked again while already running.
+                if (wheelSpinning == false) {
+                    //CSS hiển thị button
+                    statusButton(2);
+                    
+                    //Cấu hình vòng quay
+                    theWheel.animation = {
+                        'type'     : 'spinOngoing',
+                        'duration' : duration,
+                        'spins'    : spins,
+                        'callbackSound'    : playSound,     //Hàm gọi âm thanh khi quay
+                        'soundTrigger'     : 'pin',         //Chỉ định chân là để kích hoạt âm thanh
+                        'callbackFinished' : alertPrize,    //Hàm hiển thị kết quả trúng giải thưởng
+                    };
+                    
+                    //Hàm bắt đầu quay
+                    theWheel.startAnimation();
+                }
+            }
+            
+            //stopSpin
+            function stopSpin() {
+                if (wheelSpinning == false) {
+                    theWheel.animation = {
+                        'type'     : 'spinToStop',
+                        'duration' : (duration + 13),
+                        'spins'    : (spins + 1),
+                        'callbackSound'    : playSound,     //Hàm gọi âm thanh khi quay
+                        'soundTrigger'     : 'pin',         //Chỉ định chân là để kích hoạt âm thanh
+                        'callbackFinished' : alertPrize,    //Hàm hiển thị kết quả trúng giải thưởng
+                    };
+
+                    //Hàm bắt đầu quay
+                    theWheel.startAnimation();
+
+                    //Khóa vòng quay
+                    wheelSpinning = true;
+                }
+            }
+            
+            //Result
+            function alertPrize(indicatedSegment) {
+                //CSS hiển thị button
+                statusButton(3);
+                document.getElementById('kq').innerText=indicatedSegment.text;
+                btn = document.getElementById('nut');
+
+                Truyen =0;
+                if(indicatedSegment.fillStyle == '#0652DD') Truyen =1 ; // CẠN LY
+                if(indicatedSegment.fillStyle == '#89f26e') Truyen =2 ; // NỢ LY
+                if(indicatedSegment.fillStyle == '#7de6ef') Truyen =3 ; // HAI LY
+                if(indicatedSegment.fillStyle == '#f8a5c2') Truyen =4 ; // ĐỒNG KHỞI
+                if(indicatedSegment.fillStyle == '#eae56f') Truyen =5 ; // 50-50
+                if(indicatedSegment.fillStyle == '#ff5252') Truyen =6 ; // QUA LƯỢT
+                if(indicatedSegment.fillStyle == '#8e44ad') Truyen =7 ; // MỜI LY
+                if(indicatedSegment.fillStyle == '#e67e22') Truyen =8 ; // CHỈ ĐỊNH
+
+                btn.value=Truyen;
+                ketthuc.play();
+                setTimeout(submitForm, 2000);
+            }
+            function submitForm()
+            {
+                btn.form.submit();
+            }
+
+            //resetWheel
+            function resetWheel() {
+                //CSS hiển thị button
+                statusButton(1);
+                
+                theWheel.stopAnimation(false);  // Stop the animation, false as param so does not call callback function.
+                theWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
+                theWheel.draw();                // Call draw to render changes to the wheel.
+
+                wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
+            }
+        </script>
+    </body>
+</html>
