@@ -1,0 +1,811 @@
+/* .App {
+  text-align: center;
+} */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.user_card {
+  height: 400px;
+  width: 350px;
+  margin-top: 120px;
+  margin-bottom: auto;
+  background: #f39c12;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+
+}
+.user_cardDangKI {
+  height: 450px;
+  width: 350px;
+  margin-top: 120px;
+  margin-bottom: auto;
+  background: #f39c12;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+
+}
+.brand_logo_container {
+  position: absolute;
+  height: 170px;
+  width: 170px;
+  top: -75px;
+  border-radius: 50%;
+  background: #60a3bc;
+  padding: 10px;
+  text-align: center;
+}
+.brand_logo {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.form_container {
+  margin-top: 100px;
+}
+.login_btn {
+  width: 100%;
+  background: #c0392b !important;
+  color: white !important;
+  margin-top: 29px;
+}
+.login_btn1 {
+  width: 100%;
+  background: #cf16b8 !important;
+  color: white !important;
+  margin-top: 29px;
+}
+.login_btn:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+.login_container {
+  padding: 0 2rem;
+}
+.input-group-text {
+  background: #c0392b !important;
+  color: white !important;
+  border: 0 !important;
+  border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+  background-color: #c0392b !important;
+}
+.erorrLogin{
+  color: #e91111;
+  font-size: 18px;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+.ChangeAccount{
+  font-size: 22px;
+  font-family: 'Dancing Script', cursive;
+  color: #2b41c0;
+  font-weight: bold;
+  cursor: pointer;
+}
+.ChangeAccount:hover{
+  color: #f6faf7;
+}
+
+.GiuaManHinh{
+  width: 100%;
+  height: 100%;
+  background: #60a3bc !important;
+  /* padding-bottom: 100px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 400px;
+}
+.anhoff{
+  width: 40px;
+  height: 30px;
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  z-index: 100;
+}
+/* end login */
+
+/* begin app bieu do  */
+
+ /* menu */
+ .navbar-expand-sm .navbar-collapse {
+   display: -ms-flexbox!important;
+   display: flex!important;
+   -ms-flex-preferred-size: auto;
+   flex-basis: auto;
+   justify-content: flex-end;
+ }
+ .bg-danger {
+   background-color: #dd3838!important;
+ }
+ 
+ .navbar-dark .navbar-nav .nav-link:hover {
+   color: rgb(255, 0, 234) !important;
+   cursor: pointer;
+ }
+
+.homeicon {
+    font-size: 27px;
+    color: white;
+}
+.btn.dropdown-toggle {
+  color: white;
+  font-size: 17px;
+}
+
+/* end ap bieu do   */
+
+/* model  */
+.modal-title {
+  margin-bottom: 0;
+  /* line-height: 1.5; */
+  color: red;
+}
+
+.modal-body {
+  position: relative;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1rem;
+  color: #d31313;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+/* menu dien thoai  */
+.phan-menu-dienthoai
+{
+  background-color: #2a2a2a;
+  margin-left: 25px;
+  margin-right: 25px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.col-3.text-center {
+  color: white;
+  font-size: 5px;
+}
+.btn.dropdown-toggle {
+  color: white;
+  font-size: 17px;
+  margin-left: -12px;
+}
+
+/* Vòng quay  */
+li:first-child .text{
+  background-color: violet;
+}
+li:nth-child(2) .text{
+  background-color: indigo;
+}
+li:nth-child(3) .text{
+  background-color: blue;
+}
+li:nth-child(4) .text{
+  background-color: green;
+}
+li:nth-child(5) .text{
+  background-color: yellow;
+}
+li:nth-child(6) .text{
+  background-color: rgb(241, 99, 206);
+}
+li:nth-child(7) .text{
+  background-color: rgb(219, 233, 29);
+}
+li:nth-child(8) .text{
+  background-color: violet;
+}
+li:nth-child(9) .text{
+  background-color: indigo;
+}
+li:nth-child(10) .text{
+  background-color: blue;
+}
+li:nth-child(11) .text{
+  background-color: green;
+}
+li:nth-child(12) .text{
+  background-color: yellow;
+}
+li:first-child .textMobie{
+  background-color: violet;
+}
+li:nth-child(2) .textMobie{
+  background-color: indigo;
+}
+li:nth-child(3) .textMobie{
+  background-color: blue;
+}
+li:nth-child(4) .textMobie{
+  background-color: green;
+}
+li:nth-child(5) .textMobie{
+  background-color: yellow;
+}
+li:nth-child(6) .textMobie{
+  background-color: rgb(241, 99, 206);
+}
+li:nth-child(7) .textMobie{
+  background-color: rgb(219, 233, 29);
+}
+li:nth-child(8) .textMobie{
+  background-color: violet;
+}
+li:nth-child(9) .textMobie{
+  background-color: indigo;
+}
+li:nth-child(10) .textMobie{
+  background-color: blue;
+}
+li:nth-child(11) .textMobie{
+  background-color: green;
+}
+li:nth-child(12) .textMobie{
+  background-color: yellow;
+}
+
+
+
+li:first-child {
+  transform: rotate(0deg) skewY(-60deg);
+}
+li:nth-child(2) {
+  transform: rotate(30deg) skewY(-60deg);
+}
+li:nth-child(3) {
+  transform: rotate(60deg) skewY(-60deg);
+}
+li:nth-child(4) {
+  transform: rotate(90deg) skewY(-60deg);
+}
+li:nth-child(5) {
+  transform: rotate(120deg) skewY(-60deg);
+}
+li:nth-child(6) {
+  transform: rotate(150deg) skewY(-60deg);
+}
+li:nth-child(7) {
+  transform: rotate(180deg) skewY(-60deg);
+}
+li:nth-child(8) {
+  transform: rotate(210deg) skewY(-60deg);
+}
+li:nth-child(9) {
+  transform: rotate(240deg) skewY(-60deg);
+}
+li:nth-child(10) {
+  transform: rotate(270deg) skewY(-60deg);
+}
+li:nth-child(11) {
+  transform: rotate(300deg) skewY(-60deg);
+}
+li:nth-child(12) {
+  transform: rotate(330deg) skewY(-60deg);
+}
+
+.circle{
+  width: 25em ;
+  height: 25em;
+  border: 1px solid black;
+  position: relative;
+  padding: 0;
+  margin: 1em auto;
+  border-radius: 50%;
+  list-style: none;
+  overflow: hidden;
+}
+.circleMobie{
+  width: 25em ;
+  height: 25em;
+  border: 1px solid black;
+  position: relative;
+  padding: 0;
+  margin: 1em auto;
+  border-radius: 50%;
+  list-style: none;
+  overflow: hidden;
+}
+li{
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  transform-origin: 0% 100% ;
+}
+.text{
+  position: absolute;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  text-align: center;
+  display: block;
+  transform: skewY(60deg) rotate(15deg);
+  padding-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(226, 83, 27);
+}
+.textMobie{
+  position: absolute;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  text-align: center;
+  display: block;
+  transform: skewY(60deg) rotate(15deg);
+  padding-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+  color: rgb(226, 83, 27);
+}
+
+/* // mũi tên */
+.arrow{
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 50px solid rgb(238, 15, 15);;
+  position: absolute;
+  left: 48.9%;
+  top: 29.5%;
+  z-index: 1;
+  transform: rotateX(180deg);
+}
+.arrowMobie{
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 50px solid rgb(238, 15, 15);;
+  position: absolute;
+  left: 46%;
+  top: 35%;
+  z-index: 1;
+  transform: rotateX(180deg);
+}
+
+.spin-button{
+  position: absolute;
+  left: 46.7%;
+  top: 36%;
+  width: 90px;
+  height: 90px;
+  background-color: rgb(0, 255, 42);
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  border-width: 8px ;
+  border-color: rgb(238, 15, 15);
+  z-index: 2;
+}
+.spin-buttonMobie{
+  position: absolute;
+  left: 38%;
+  top: 41%;
+  width: 90px;
+  height: 90px;
+  background-color: rgb(0, 255, 42);
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  border-width: 10px ;
+  border-color: rgb(238, 15, 15);
+  z-index: 2;
+}
+
+.start-rotate{
+  animation: start-rotate 2s linear infinite;
+  /* animation: start-rotate 2s linear infinite; */
+}
+@keyframes start-rotate{
+  100%{
+    transform: rotate(720deg);
+  }
+}
+
+.stop-rotate{
+  /* animation: start-rotate 2s linear infinite; */
+  transform: rotate(360deg);
+}
+
+.conti-rotate{
+  animation-play-state: paused;
+}
+
+.kq{
+  text-align: center;
+  font-size: 25px;
+  color: rgb(209, 37, 37);
+  margin-top: 60px;
+}
+.kqMobie{
+  text-align: center;
+  font-size: 25px;
+  color: rgb(209, 37, 37);
+  margin-top: 40px;
+}
+.cach-chyen{
+  cursor: pointer;
+}
+
+/* mam hình 2 */
+
+
+.phan2{
+ width: 100%;
+ height: 100%;
+ display: flex;
+ justify-content: center;
+}
+.CauHoi{
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  background-color: #dd38cf;
+}
+.tocauhoi{
+  width: 400px;
+  height: 130px;
+  background-color: #2b41c0;
+  margin-top: 50px;
+  border-radius: 15px;
+  border: solid 5px rgb(23, 0, 128);
+  position: relative;
+}
+.tocauhoiMobie{
+  width: 100%;
+  height: 100px;
+  background-color: #2b41c0;
+  margin-top: 30px;
+  border-radius: 15px;
+  border: solid 5px rgb(23, 0, 128);
+  position: relative;
+}
+.socauhoi{
+  position: absolute;
+  font-size: 20px;
+  color: #f1e206;
+  font-weight: bold;
+  left: 4%;
+  top: 3%;
+}
+.socauhoiMobie{
+  position: absolute;
+  font-size: 15px;
+  color: #f1e206;
+  font-weight: bold;
+  left: 4%;
+  top: 3%;
+}
+.ndcauhoi{
+  position: absolute;
+  font-size: 20px;
+  color: #10ee48;
+  left: 8%;
+  top: 25%;
+}
+.ndcauhoiMobie{
+  position: absolute;
+  font-size: 14px;
+  color: #10ee48;
+  left: 8%;
+  top: 26%;
+}
+.totraloi{
+  width: 1000px;
+  height: 200px;
+  background-color: #c02b76;
+  margin-top: 50px;
+  border-radius: 15px;
+  border: solid 5px rgb(0, 128, 17);
+  position: relative;
+}
+.traloi1{
+  position: absolute;
+  width: 270px;
+  height: 50px;
+  background-color: #ee0505;
+  border-radius: 10px;
+  left: 40px;
+  top: 10px;
+  border: solid 4px rgb(44, 44, 37);
+  cursor: pointer;
+}
+.traloi1:hover{
+  position: absolute;
+  width: 270px;
+  height: 50px;
+  background-color: #05ee24;
+  border-radius: 10px;
+  left: 40px;
+  top: 8px;
+  border: solid 4px rgb(37, 44, 37);
+  cursor: pointer;
+}
+.traloi1Mobie{
+  position: absolute;
+  width: 140px;
+  height: 40px;
+  background-color: #ee0505;
+  border-radius: 10px;
+  left: 10px;
+  top: 15px;
+  border: solid 4px rgb(37, 44, 37);
+  cursor: pointer;
+}
+.traloi2{
+  position: absolute;
+  width: 270px;
+  height: 50px;
+  background-color: #ee0505;
+  border-radius: 10px;
+  left: 400px;
+  top: 10px;
+  border: solid 4px rgb(37, 44, 37);
+  cursor: pointer;
+}
+.traloi2:hover{
+  position: absolute;
+  width: 270px;
+  height: 50px;
+  background-color: #05ee24;
+  border-radius: 10px;
+  left: 400px;
+  top: 8px;
+  border: solid 4px rgb(37, 44, 37);
+  cursor: pointer;
+}
+.traloi2Mobie{
+  position: absolute;
+  width: 140px;
+  height: 40px;
+  background-color: #ee0505;
+  border-radius: 10px;
+  left: 167px;
+  top: 15px;
+  border: solid 4px rgb(37, 44, 37);
+  cursor: pointer;
+}
+
+.traloi3{
+  position: absolute;
+  width: 270px;
+  height: 50px;
+  background-color: #ee0505;
+  border-radius: 10px;
+  left: 40px;
+  top: 70px;
+  border: solid 4px rgb(37, 44, 37);
+  cursor: pointer;
+}
+.traloi3:hover{
+  position: absolute;
+  width: 270px;
+  height: 50px;
+  background-color: #05ee24;
+  border-radius: 10px;
+  left: 40px;
+  top: 68px;
+  border: solid 4px rgb(37, 44, 37);
+  cursor: pointer;
+}
+.traloi3Mobie{
+  position: absolute;
+  width: 140px;
+  height: 40px;
+  background-color: #ee0505;
+  border-radius: 10px;
+  left: 10px;
+  top: 65px;
+  border: solid 4px rgb(37, 44, 37);
+  cursor: pointer;
+}
+
+.traloi4{
+  position: absolute;
+  width: 270px;
+  height: 50px;
+  background-color: #ee0505;
+  border-radius: 10px;
+  left: 400px;
+  top: 70px;
+  border: solid 4px rgb(37, 44, 37);
+  cursor: pointer;
+}
+.traloi4:hover{
+  position: absolute;
+  width: 270px;
+  height: 50px;
+  background-color: #05ee24;
+  border-radius: 10px;
+  left: 400px;
+  top: 68px;
+  border: solid 4px rgb(37, 44, 37);
+  cursor: pointer;
+}
+.traloi4Mobie{
+  position: absolute;
+  width: 140px;
+  height: 40px;
+  background-color: #ee0505;
+  border-radius: 10px;
+  left: 167px;
+  top: 65px;
+  border: solid 4px rgb(37, 44, 37);
+  cursor: pointer;
+}
+
+.nutnhan{
+  position: absolute;
+  left: 200px;
+  top: 135px;
+  border-radius: 10px;
+  border: solid 3px rgb(192, 189, 37);
+}
+.nutnhan1{
+  position: absolute;
+  left: 380px;
+  top: 135px;
+  border-radius: 10px;
+  border: solid 3px rgb(192, 189, 37);
+}
+.nutnhanMobie{
+  position: absolute;
+  left: 20px;
+  top: 130px;
+  border-radius: 10px;
+  border: solid 3px rgb(192, 189, 37);
+}
+.nutnhan1Mobie{
+  position: absolute;
+  left: 170px;
+  top: 130px;
+  border-radius: 10px;
+  border: solid 3px rgb(192, 189, 37);
+}
+.dapan1{
+  position: absolute;
+  font-size: 15px;
+  color: #f5f3f4;
+  top: 20px;
+  left: 55px;
+  cursor: pointer;
+}
+.dapan2{
+  position: absolute;
+  font-size: 15px;
+  color: #f5f3f4;
+  top: 20px;
+  left: 420px;
+  cursor: pointer;
+}
+.dapan3{
+  position: absolute;
+  font-size: 15px;
+  color: #f5f3f4;
+  top: 80px;
+  left: 55px;
+  cursor: pointer;
+}
+.dapan4{
+  position: absolute;
+  font-size: 15px;
+  color: #f5f3f4;
+  top: 80px;
+  left: 420px;
+  cursor: pointer;
+}
+.dapan1Mobie{
+  position: absolute;
+  font-size: 14px;
+  color: #f5f3f4;
+  top: 22px;
+  left: 22px;
+  cursor: pointer;
+}
+.dapan2Mobie{
+  position: absolute;
+  font-size: 14px;
+  color: #f5f3f4;
+  top: 22px;
+  left: 178px;
+  cursor: pointer;
+}
+.dapan3Mobie{
+  position: absolute;
+  font-size: 14px;
+  color: #f5f3f4;
+  top: 73px;
+  left: 22px;
+  cursor: pointer;
+}
+.dapan4Mobie{
+  position: absolute;
+  font-size: 14px;
+  color: #f5f3f4;
+  top: 73px;
+  left: 178px;
+  cursor: pointer;
+}
+.showkq{
+  background-color: #10ee48;
+}
+.moiquay{
+  font-size: 20px;
+  color: #ee4f05;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.showsai{
+  background-color: #f39c12;
+}
+
+
